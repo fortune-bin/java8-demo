@@ -18,10 +18,10 @@ public class lambda {
      *      4.可选的返回关键字：如果主体只有一个表达式返回值则编译器会自动返回值，大括号需要指定明表达式返回了一个数值。
      *
      *  接口描述：
-     *  1.BiConsumer<T,U>           代表了一个接受两个输入参数的操作，并且不返回任何结果
-     *  2.BiFunction<T,U,R>         代表了一个接受两个输入参数的方法，并且返回一个结果
-     *  3.BinaryOperator<T>         代表了一个作用于于两个同类型操作符的操作，并且返回了操作符同类型的结果
-     *  4.BiPredicate<T,U>          代表了一个两个参数的boolean值方法
+     * 1.BiConsumer<T,U>           代表了一个接受两个输入参数的操作，并且不返回任何结果
+     * 2.BiFunction<T,U,R>         代表了一个接受两个输入参数的方法，并且返回一个结果
+     * 3.BinaryOperator<T>         代表了一个作用于于两个同类型操作符的操作，并且返回了操作符同类型的结果
+     * 4.BiPredicate<T,U>          代表了一个两个参数的boolean值方法
      * 5.BooleanSupplier            代表了boolean值结果的提供方
      * 6.Consumer<T>                代表了接受一个输入参数并且无返回的操作
      * 7.DoubleBinaryOperator       代表了作用于两个double值操作符的操作，并且返回了一个double值的结果。
@@ -64,17 +64,43 @@ public class lambda {
      */
 
     public static void simpleExample(){
-        System.out.println("不需要参数返回5样例");
-        IntSupplier inde = () -> 5;
-        System.out.println(inde.getAsInt());
-
-
-
+        LambdaTest lambdaTest = new LambdaTest();
+        int operate = lambdaTest.operate(5, 23, lambdaTest.addition);
+        System.out.println(operate);
     }
-
     public static void main(String[] args){
         simpleExample();
     }
+}
+class LambdaTest{
 
+    /**
+     * 带类型声明
+     */
+    SuaRonOperation addition = (int a, int b) -> a + b;
+    /**
+     * 不用类型声明
+     */
+    SuaRonOperation subtraction = (a, b) -> a - b;
 
+    /**
+     * 大括号声语句
+     */
+    SuaRonOperation multiplication = (int a, int b) -> { return a * b; };
+
+    /**
+     * 大括号返回语句
+     */
+    SuaRonOperation division = (int a, int b) -> a / b;
+
+    public int operate(int a, int b, SuaRonOperation mathOperation){
+        return mathOperation.operation(a, b);
+    }
+}
+
+/**
+ * 自定义接口
+ */
+interface SuaRonOperation {
+    int operation(int a, int b);
 }
