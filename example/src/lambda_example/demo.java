@@ -36,25 +36,19 @@ public class demo {
          * java8 就不需要花很多时间在 创建匿名对象上，使用短语法  lambda 表达式
          */
 
-        /**
-         * 语法1
-         */
+
+        //语法1
         Collections.sort(strings, (String a, String b) -> {
             return b.compareTo(a);
         });
         System.out.println("java8 语法形式1" + strings);
-        /**
-         * 语法2  对于只有一行的方法体 可以跳过{} 和 return 关键字
-         */
+        //语法2  对于只有一行的方法体 可以跳过{} 和 return 关键字
         Collections.sort(strings, (String x, String y) -> x.compareTo(y));
         System.out.println("java8 语法形式2" + strings);
 
-        /**
-         * 语法3 List 中就有一个sort 方法 因此我们可以去掉 Collections.sort 这个操作
-         */
-        strings.sort((q,w)->w.compareTo(q));
+        //语法3 List 中就有一个sort 方法 因此我们可以去掉 Collections.sort 这个操作
+        strings.sort((q, w) -> w.compareTo(q));
         System.out.println("java8 语法形式3" + strings);
-
 
 
     }
@@ -66,3 +60,5 @@ public class demo {
     }
 
 }
+
+
