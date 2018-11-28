@@ -67,6 +67,7 @@ public class lambda {
         LambdaTest lambdaTest = new LambdaTest();
         int operate = lambdaTest.operate(5, 23, lambdaTest.addition);
         System.out.println(operate);
+
     }
     public static void main(String[] args){
         simpleExample();
